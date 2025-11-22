@@ -1,5 +1,5 @@
 import { DataTypes, Model } from "sequelize"; // Required to create models
-import { sequelize } from "./sequelize.client.js"; // Corresponds to the database connection
+import { sequelize } from "../config.js/sequelize.client.js"; // Corresponds to the database connection
 
 export class Joke extends Model {}
 
