@@ -53,4 +53,28 @@ class JokeController extends CoreController {
         }
     };
 
+    //Method to get a joke by its ID
+    getById = async(req, res) => {
+        try {
+            
+            // Catch the id from the request
+            const { id } = req.params;
+
+            // Search the joke according to the id in the database
+            const joke = await Joke.findByPk(id);
+            
+            // If the joke is not found in the database
+            if(!joke){
+                return this.json404(req, res, `La blague avec l'id ${id} n'existe pas.`)
+            }
+
+             // Respond with HTTP 200 and display the joke selected
+
+        } catch (error) {
+
+             // For any other errors, return a 500 Internal Server Error
+            this.json500(req, res, error);
+        }
+    }
+
 }
