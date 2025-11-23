@@ -1,16 +1,17 @@
 import express from "express";
+import { JokeController } from "../controllers/index.controller.js";
 
 // Create a router instance
 export const jokeRouter = express.Router();
 
 // Road to get all the jokes
-jokeRouter.get('/jokes', jokeController.getAll);
+jokeRouter.get('/jokes', JokeController.getAll);
 
 // Road to get a random joke
-jokeRouter.get('/jokes/random', jokeController.getRandomJoke);
+jokeRouter.get('/jokes/random', JokeController.getRandomJoke);
 
 // Road to add a new joke
-jokeRouter.post('/jokes', jokeController.addJoke);
+jokeRouter.post('/jokes', JokeController.addJoke);
 
 // Road to get a joke by ID
-jokeRouter.get('/jokes/:id', jokeController.getById);
+jokeRouter.get('/jokes/:id', JokeController.getById);

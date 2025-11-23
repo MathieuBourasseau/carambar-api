@@ -51,5 +51,6 @@ class JokeController extends CoreController {
             // For any other errors, return a 500 Internal Server Error
             this.json500(req, res, error);
         }
-    }
+    };
+
 }
