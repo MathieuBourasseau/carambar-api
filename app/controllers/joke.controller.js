@@ -25,6 +25,29 @@ class JokeController extends CoreController {
         }
     };
 
+    // Method to get a random joke
+    getRandomJoke = async (req, res) => {
+        try {
+            
+            // Find a random joke among the database
+            const randomJoke = await Joke.findOne({
+                order: sequelize.random()
+            });
+            
+            // In case of joke database is empty
+            if(!randomJoke) {
+                return this.json404(req, res, "Aucune blague aléatoire n'est disponible pour le moment.")
+            }
+
+            // Respond with HTTP 200 and the random joke
+            res.status(200).json(randomJoke);
+
+
+        } catch (error) {
+            this.json500(req, res, error);
+        }
+    };
+
     // Method to add a new joke to the database
     addJoke = async (req, res) => {
         try {
@@ -69,6 +92,7 @@ class JokeController extends CoreController {
             }
 
              // Respond with HTTP 200 and display the joke selected
+             res.status(200).json(joke);
 
         } catch (error) {
 
