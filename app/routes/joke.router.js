@@ -1,5 +1,5 @@
 import express from "express";
-import { JokeController } from "../controllers/index.controller.js";
+import { JokeController } from "../controllers/index.controller.js"
 import { checkId } from "../middlewares/checkId.js";
 
 // Create a router instance

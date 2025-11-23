@@ -4,6 +4,9 @@ import dotenv from 'dotenv/config';
 import { sequelize } from "./app/database/sequelize.client.js";
 import { jokeRouter } from "./app/routes/joke.router.js";
 
+import swaggerUi from "swagger-ui-express";
+import swaggerJsdoc from "swagger-jsdoc"
+
 // Server configuration
 const app = express();
 
