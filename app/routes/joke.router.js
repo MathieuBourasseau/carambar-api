@@ -4,9 +4,7 @@ import { checkId } from "../middlewares/checkId.js";
 
 export const jokeRouter = express.Router();
 
-// ==========================================
-// 1. DÉFINITION DU MODÈLE
-// ==========================================
+// 1. Model joke definition
 /**
  * @swagger
  * components:
@@ -32,9 +30,7 @@ export const jokeRouter = express.Router();
  *         answer: "L'Amsterdam"
  */
 
-// ==========================================
-// 2. TAGS
-// ==========================================
+// 2. Tags used
 /**
  * @swagger
  * tags:
@@ -42,9 +38,7 @@ export const jokeRouter = express.Router();
  *     description: API de gestion des blagues Carambar
  */
 
-// ==========================================
-// 3. ROUTES API
-// ==========================================
+// 3. Routes API
 
 /**
  * @swagger
