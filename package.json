@@ -4,7 +4,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch index.js"
+    "dev": "node --watch index.js",
+    "db:create" :"node ./data/01.create_tables.js",
+    "db:seed" : "node ./data/02.seed_tables.js",
+    "db:reset" : "npm run db:create && npm run db:seed"
   },
   "keywords": [],
   "author": "",
