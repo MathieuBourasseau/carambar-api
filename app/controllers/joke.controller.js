@@ -1,6 +1,6 @@
 import { CoreController } from "./index.controller.js";
 import { Joke } from "../models/index.model.js";
-import { sequelize } from "../config.js/sequelize.client.js";
+import { sequelize } from "../config/sequelize.client.js";
 import { createJokeSchema } from "../schemas/joke.schema.js";
 import Joi from "joi";
 
