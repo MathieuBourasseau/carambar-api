@@ -1,6 +1,8 @@
 import { CoreController } from "./index.controller.js";
 import { Joke } from "../models/index.model.js";
 import { sequelize } from "../config.js/sequelize.client.js";
+import { createJokeSchema } from "../schemas/joke.schema.js";
+import Joi from "joi";
 
 // JokeController class to handle joke-related requests
 // Extends the CoreController to inherit common functionalities
@@ -9,14 +11,45 @@ class JokeController extends CoreController {
     // Method to get all jokes
     getAll = async (req, res) => {
         try {
+
+            // Fetch all joke records from the database
             const jokes = await Joke.findAll();
+
+            // Respond with HTTP 200 and the retrieved jokes
             res.status(200).json(jokes);
+
         } catch (error) {
+
+            // Use CoreController helper to send a standardized 500 response
+            this.json500(req, res, error);
+        }
+    };
+
+    // Method to add a new joke to the database
+    addJoke = async (req, res) => {
+        try {
+
+            // Validate the joke data
+            const { question, answer } = Joi.attempt(req.body, createJokeSchema);
+
+            // Insert a new joke record in the database
+            const newJoke = await Joke.create({
+                question,
+                answer
+            });
+
+            // Respond with HTTP 201 Created and the new joke
+            res.status(201).json(newJoke)
+
+        } catch(error) {
+            
+            // If validation error from Joi, return a 400 Bad Request with details
+            if (error.isJoi) {
+                return this.json400(req, res, error.message);
+            }
+
+            // For any other errors, return a 500 Internal Server Error
             this.json500(req, res, error);
         }
     }
-
-    
-
-
 }
