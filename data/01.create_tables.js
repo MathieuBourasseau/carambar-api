@@ -1,4 +1,5 @@
-import { sequelize } from "../app/models/index.js";
+import { sequelize } from "../app/config/sequelize.client.js";
+import { Joke } from "../app/models/index.model.js"
 
 console.log("🚧 Tables creation");
 await sequelize.sync({ force: true });

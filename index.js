@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";        
 import dotenv from 'dotenv/config';
-import { sequelize } from "./app/database/sequelize.client.js";
+import { sequelize } from "./app/config/sequelize.client.js";
 import { jokeRouter } from "./app/routes/joke.router.js";
 
 import swaggerUi from "swagger-ui-express";
@@ -16,10 +16,32 @@ app.use(express.json()); // Parse JSON request bodies
 
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded request bodies
 
-app.use('/api/v1', jokeRouter) ; // Use the joke router for API routes
-
 // Load environment variables from .env file
 const PORT = process.env.PORT || 3000;
+
+
+// Configuration of swagger
+const swaggerOptions = {
+    definition: {
+        openapi: '3.0.0',
+        info: {
+            title: 'Carambar API',
+            version: '1.0.0',
+            description: 'Documentation de l\'API de blagues Carambar',
+        },
+        servers: [
+            { url: `http://localhost:${PORT}/api/v1` } 
+        ],
+    },
+    apis: ['./app/routes/*.js'], 
+};
+
+const swaggerDocs = swaggerJsdoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+
+app.use('/api/v1', jokeRouter) ; // Use the joke router for API routes
+
 
 try {
     await sequelize.authenticate();

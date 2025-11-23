@@ -1,6 +1,6 @@
 
-import { sequelize } from "./app/database/sequelize.client.js";
-import { Joke } from "./app/models/Joke.js";
+import { sequelize } from "../app/config/sequelize.client.js";
+import { Joke } from "../app/models/index.model.js";
 
 console.log("🚧 Insertion des blagues (Seed)...");
 
