@@ -35,11 +35,12 @@ Le serveur se lancera par défaut sur le port 3001.
 
 ## 📚 Documentation (Swagger)
 
-L'API est entièrement documentée. Une fois le serveur lancé, accédez à :
-👉 http://localhost:3001/api-docs
+L'API est entièrement documentée via Swagger UI.
+
+- En ligne (Render) :  https://carambar-api-1lrv.onrender.com/api-docs
+- En local (après démarrage) : http://localhost:3001/api-docs
 
 ### 🔗 Liens Utiles
 
-Repository Frontend : https://github.com/MathieuBourasseau/carambar-front
-
-Déploiement (Render) : https://carambar-api-1lrv.onrender.com/ 
+- Repository Frontend : https://github.com/MathieuBourasseau/carambar-front
+- Site en ligne : https://mathieubourasseau.github.io/carambar-front/ 
