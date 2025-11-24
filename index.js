@@ -10,7 +10,15 @@ import swaggerJsdoc from "swagger-jsdoc"
 // Server configuration
 const app = express();
 
-app.use(cors()); // Enable CORS for all routes
+const corsOptions = {
+    origin: [
+        'http://localhost:5500',    // VS Code Live Server
+        'http://127.0.0.1:5500',    // VS Code Live Server (IP)
+        'http://localhost:3000',    // Front-end React/Vue local standard
+    ],
+};
+
+app.use(cors(corsOptions)); // Enable CORS for all routes
 
 app.use(express.json()); // Parse JSON request bodies
 
