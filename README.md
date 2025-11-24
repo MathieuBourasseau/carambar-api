@@ -42,4 +42,4 @@ L'API est entièrement documentée. Une fois le serveur lancé, accédez à :
 
 Repository Frontend : https://github.com/MathieuBourasseau/carambar-front
 
-Déploiement (Render) : 
+Déploiement (Render) : https://carambar-api-1lrv.onrender.com/ 
