@@ -1,4 +1,5 @@
 import { sequelize } from "./app/config/sequelize.client.js";
+import { Joke } from "./app/models/joke.model.js";
 
 async function initDB() {
     try {
