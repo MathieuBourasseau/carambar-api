@@ -6,10 +6,13 @@ Cette application permet de gérer et de distribuer des blagues Carambar via une
 ## 🛠️ Stack Technique
 
 - Serveur : Node.js, Express
-- Base de données : SQLite (fichier local)
+- Base de données : 
+    - Développement: SQLite (fichier local)
+    - Production : PostgreSQL (via Neon Tech)
 - ORM : Sequelize
 - Validation : Joi
 - Documentation : Swagger UI
+- Déploiement : Render (Back) & Vercel (Front)
 
  ## 🚀 Installation et Lancement
 
@@ -22,7 +25,7 @@ npm install
 2. Initialiser la Base de Données : cette commande crée les tables et insère 10 blagues de base.
 
 ```bash
-npm run db:reset
+node init_db.js
 ```
 
 3. Démarrer le serveur
@@ -31,14 +34,20 @@ npm run db:reset
 npm run dev
 ```
 
-Le serveur se lancera par défaut sur le port 3001.
+Le serveur se lancera par défaut sur le port 3000.
+
+## 📦 Architecture de Déploiement (Render)
+Le projet est configuré pour un déploiement continu sur Render.
+
+- Start Command : node init_db.js && node index.js (Ceci assure que la base de données PostgreSQL est toujours synchronisée et remplie avant que le serveur ne démarre).
+- Variables d'environnement : Le projet bascule automatiquement sur PostgreSQL lorsqu'il détecte la variable PG_URL.
 
 ## 📚 Documentation (Swagger)
 
 L'API est entièrement documentée via Swagger UI.
 
 - En ligne (Render) :  https://carambar-api-1lrv.onrender.com/api-docs
-- En local (après démarrage) : http://localhost:3001/api-docs
+- En local (après démarrage) : http://localhost:3000/api-docs
 
 ### 🔗 Liens Utiles
 
