@@ -16,6 +16,7 @@ const corsOptions = {
         'http://127.0.0.1:5500',    // VS Code Live Server (IP)
         'http://localhost:3000',    // Front-end React/Vue local standard
         'https://mathieubourasseau.github.io', // Front-end GitHub Pages
+        /\.vercel\.app$/
     ],
 };
 
