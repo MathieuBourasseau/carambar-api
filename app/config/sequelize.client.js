@@ -1,26 +1,32 @@
 import { Sequelize } from "sequelize";
+import dotenv from 'dotenv/config';
 
-// Connect the database to the ORM
-// Define the database architecture and options
-export const sequelize = new Sequelize({
+// Conditionnal bloc to use the good URL according to the context
+const sequelizeInstance = process.env.PG_URL
+  ? new Sequelize(process.env.PG_URL, {
+      dialect: 'postgres',
+      dialectOptions: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false, 
+        },
+      },
+      logging: false,
+      define: {
+        createdAt: "created_at",
+        updatedAt: "updated_at",
+        underscored: true,
+      },
+    })
+  : new Sequelize({
+      dialect: 'sqlite',
+      storage: 'database.sqlite',
+      logging: false,
+      define: {
+        createdAt: "created_at",
+        updatedAt: "updated_at",
+        underscored: true,
+      },
+    });
 
-    dialect: 'sqlite', // Use SQLite as the database dialect
-    storage: 'database.sqlite', // SQLite storage file
-
-    logging: false, // Disable Sequelize console logging
-    define: {
-        createdAt: "created_at", // Use 'created_at' for creation timestamp
-        updatedAt: "updated_at", // Use 'updated_at' for update timestamp
-        underscored: true, // Use snake_case for table and column names
-    }
-}
-);
-
-try {
-    // Test the database connection
-    await sequelize.authenticate();
-    console.log("Connection to the database has been established successfully. ✅");
-} catch (error) {
-    // Handle connection errors
-    console.error("Unable to connect to the database.❌")
-};
+export const sequelize = sequelizeInstance;

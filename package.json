@@ -5,9 +5,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node --watch index.js",
-    "db:create" :"node ./data/01.create_tables.js",
-    "db:seed" : "node ./data/02.seed_tables.js",
-    "db:reset" : "npm run db:create && npm run db:seed"
+    "db:create": "node ./data/01.create_tables.js",
+    "db:seed": "node ./data/02.seed_tables.js",
+    "db:reset": "npm run db:create && npm run db:seed"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "joi": "^18.0.2",
+    "pg": "^8.16.3",
     "sequelize": "^6.37.7",
     "sqlite3": "^5.1.7",
     "swagger-jsdoc": "^6.2.8",
