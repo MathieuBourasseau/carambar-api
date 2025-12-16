@@ -43,7 +43,7 @@ const swaggerOptions = {
             description: 'Documentation de l\'API de blagues Carambar',
         },
         servers: [
-            { url: `http://localhost:${PORT}/api/v1` } 
+            { url: SERVER_URL }
         ],
     },
     apis: ['./app/routes/*.js'], 
