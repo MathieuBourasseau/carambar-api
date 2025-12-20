@@ -53,3 +53,5 @@ L'API est entièrement documentée via Swagger UI.
 
 - Repository Frontend : https://github.com/MathieuBourasseau/carambar-front
 - Site en ligne : https://mathieubourasseau.github.io/carambar-front/ 
+
+⚠️ Note importante (Cold Start) : Le backend étant hébergé sur l'offre gratuite de Render, le serveur se met en veille après une période d'inactivité. Par conséquent, la première requête peut prendre jusqu'à 3 minutes le temps que le serveur redémarre ("Cold Start"). Si rien ne se passe au premier clic, merci de patienter quelques instants, les requêtes suivantes seront instantanées.
